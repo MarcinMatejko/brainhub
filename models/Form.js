@@ -19,10 +19,12 @@ const FormSchema = new mongoose.Schema({
   },
   eventDesc: {
     type: String,
+    required: false,
   },
-  date: {
+  eventDate: {
     type: Date,
     default: Date.now,
+    required: true,
   },
 });
 

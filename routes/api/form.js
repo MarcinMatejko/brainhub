@@ -19,7 +19,14 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { firstName, lastName, email, eventName, eventDesc } = req.body;
+    const {
+      firstName,
+      lastName,
+      email,
+      eventName,
+      eventDesc,
+      eventDate,
+    } = req.body;
 
     try {
       form = new Form({
@@ -28,6 +35,7 @@ router.post(
         email,
         eventName,
         eventDesc,
+        eventDate,
       });
 
       await form.save();

@@ -10,17 +10,26 @@ const EventForm = ({ addEvent }) => {
     email: '',
     eventName: '',
     eventDesc: '',
-    date: '',
+    eventDate: '',
   });
 
-  const { firstName, lastName, email, eventName, eventDesc, date } = formData;
+  const {
+    firstName,
+    lastName,
+    email,
+    eventName,
+    eventDesc,
+    eventDate,
+  } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    addEvent({ firstName, lastName, email, eventName, eventDesc, date });
+    addEvent({ firstName, lastName, email, eventName, eventDesc, eventDate });
+    console.log('Event added succesfuly.');
+    console.log(formData);
   };
 
   return (
@@ -33,6 +42,7 @@ const EventForm = ({ addEvent }) => {
             name='firstName'
             value={firstName}
             onChange={(e) => onChange(e)}
+            required
           />
         </div>
         <div className='form-group'>
@@ -42,6 +52,7 @@ const EventForm = ({ addEvent }) => {
             name='lastName'
             value={lastName}
             onChange={(e) => onChange(e)}
+            required
           />
         </div>
         <div className='form-group'>
@@ -51,6 +62,7 @@ const EventForm = ({ addEvent }) => {
             name='email'
             value={email}
             onChange={(e) => onChange(e)}
+            required
           />
         </div>
         <div className='form-group'>
@@ -60,6 +72,7 @@ const EventForm = ({ addEvent }) => {
             name='eventName'
             value={eventName}
             onChange={(e) => onChange(e)}
+            required
           />
         </div>
         <div className='form-group'>
@@ -73,11 +86,12 @@ const EventForm = ({ addEvent }) => {
         </div>
         <div className='form-group'>
           <input
-            type='text'
+            type='date'
             placeholder='Date'
-            name='date'
-            value={date}
+            name='eventDate'
+            value={eventDate}
             onChange={(e) => onChange(e)}
+            required
           />
         </div>
         <input type='submit' value='Add New Event' />

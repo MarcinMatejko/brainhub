@@ -33,8 +33,9 @@ const EventForm = ({ addEvent }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={(e) => onSubmit(e)}>
+    <div className='event-form'>
+      <h1 className='header'>Create Your event</h1>
+      <form onSubmit={(e) => onSubmit(e)} className='form'>
         <div className='form-group'>
           <input
             type='text'
@@ -94,7 +95,9 @@ const EventForm = ({ addEvent }) => {
             required
           />
         </div>
-        <input type='submit' value='Add New Event' />
+        <div className='form-group'>
+          <input type='submit' value='Add New Event' />
+        </div>
       </form>
     </div>
   );

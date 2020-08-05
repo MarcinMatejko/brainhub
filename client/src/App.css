@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-form {
+  width: 80vw;
+  max-width: 400px;
+  margin: 2rem 0;
+  background-color: #f0ece3;
+  border: 1px solid #dfd3c3;
+  border-radius: 0.5rem;
+}
+
+.header {
+  padding: 1rem;
+  color: #596e79;
+  border-bottom: 3px solid #596e79;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-group {
+  margin: 1rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form .form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #596e79;
+}
+
+.form input[type='text'],
+.form input[type='date'],
+.form input[type='submit'],
+.form textarea {
+  display: block;
+  width: 80%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #dfd3c3;
+  border-radius: 0.5rem;
+  color: #596e79;
+}
+
+.form input[type='submit']:hover {
+  background-color: #c7b198;
+}
+
+@media (max-width: 450px) {
+  .event-form {
+    width: 90vw;
+    margin: 1rem 0;
+  }
+
+  .form input[type='text'],
+  .form input[type='date'],
+  .form input[type='submit'],
+  .form textarea {
+    width: 90%;
+  }
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addEvent } from '../../actions/event';
+import Modal from 'react-modal';
 
 const EventForm = ({ addEvent }) => {
   const [formData, setFormData] = useState({
@@ -22,14 +23,16 @@ const EventForm = ({ addEvent }) => {
     eventDate,
   } = formData;
 
+  const [modalIsOpen, setModaliSopen] = useState(false);
+  Modal.setAppElement('#root');
+
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async (e) => {
     e.preventDefault();
     addEvent({ firstName, lastName, email, eventName, eventDesc, eventDate });
-    console.log('Event added succesfuly.');
-    console.log(formData);
+    setModaliSopen(true);
   };
 
   return (
@@ -99,6 +102,17 @@ const EventForm = ({ addEvent }) => {
           <input type='submit' value='Add New Event' />
         </div>
       </form>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModaliSopen(false)}
+        className='Modal'
+        overlayClassName='Overlay'
+      >
+        <h2 className='modal-header'>Your event has been created.</h2>
+        <button className='btn-modal' onClick={() => setModaliSopen(false)}>
+          Close
+        </button>
+      </Modal>
     </div>
   );
 };
